@@ -1,0 +1,698 @@
+/* body的初始化 */
+
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* 注意这是一定要设置的 */
+
+div {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 搜索模块 */
+
+.search-index {
+    display: flex;
+    /* 采用的是固定定位 */
+    position: fixed;
+    /* 顶部居中显示的方法 */
+    top: 0;
+    left: 50%;
+    z-index: 999;
+    /* 固定的盒子必须要有高度 */
+    /* -webkit-transform:translateX(-50%);  为了照顾兼容性 */
+    /* 往左走左走是负的 */
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 42%;
+    min-width: 320px;
+    max-height: 540px;
+    height: 44px;
+    /* background-color: pink; */
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.search {
+    position: relative;
+    flex: 1;
+    height: 26px;
+    /* 使用的是css5的模型所以边框就比较小一点 */
+    line-height: 24px;
+    border: 1px solid #ccc;
+    margin: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #666;
+    padding-left: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.search::before {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url(../images/sprite.png) no-repeat -59px -279px;
+    background-size: 104px auto;
+    /* margin: 5px;使用定位的时候设置margin值是没有用的 */
+}
+
+.user {
+    width: 44px;
+    height: 42px;
+    background-color: #fff;
+    color: #2eaae0;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* 使用伪元素：：before */
+
+.user::before {
+    content: "";
+    /* a是行内元素没有高度和宽度，要改成块级元素 */
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(../images/sprite.png) no-repeat -59px -194px;
+    background-size: 104px auto;
+    margin: 5px auto -2px;
+}
+
+
+/* focus */
+
+
+/* .focus {
+   和上面一样高则会下来啦 
+    position: relative;
+    padding-top: 44px;
+    overflow: hidden;
+      
+}
+
+.focus img {
+    width: 100%;
+}
+
+.focus ul {
+     overflow: hidden;
+   
+    width: 500%;
+   
+    margin-left: -100%;
+}
+
+.focus ul li {
+    float: left;
+    width: 20%;
+}
+
+.focus ol {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    margin: 0;
+}
+
+.focus ol li {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    border-radius: 2px;
+    transition: all .3s;
+    list-style: none;
+}
+
+.focus ol li.current {
+    width: 15px;
+} */
+
+.focus {
+    position: relative;
+    padding-top: 44px;
+    overflow: hidden;
+}
+
+.focus img {
+    width: 100%;
+}
+
+.focus ul {
+    /* 里面ul不会影响到后面的盒子 */
+    overflow: hidden;
+    /* 一共有五个Li */
+    width: 500%;
+    margin-left: -100%;
+}
+
+.focus ul li {
+    float: left;
+    width: 20%;
+}
+
+.focus ol {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    margin: 0;
+}
+
+.focus ol li {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    list-style: none;
+    border-radius: 2px;
+    transition: all .3s;
+}
+
+.focus ol li.current {
+    width: 15px;
+}
+
+
+/* 局部导航栏 */
+
+.local-nav {
+    display: flex;
+    height: 64px;
+    background-color: #fff;
+    margin: 3px 4px;
+    border-radius: 8px;
+}
+
+.local-nav li {
+    flex: 1;
+}
+
+.local-nav a {
+    display: flex;
+    /* 把对齐方式改一下为Y轴 */
+    flex-direction: column;
+    /* 侧边栏居中对齐 单行*/
+    align-items: center;
+    font-size: 12px;
+}
+
+
+/* .local-nav-icon li [class^=".local-nav-icon"] .local-nav 里面的小丽{ */
+
+
+/* .local-nav li [class^="local-nav-icon"] {
+    width: 32px;
+    height: 32px;
+    background-color: pink;
+    margin-top: 8px;
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+} */
+
+.local-nav li [class^="local-nav-icon"] {
+    width: 32px;
+    height: 32px;
+    background-color: pink;
+    margin-top: 8px;
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+}
+
+
+/* 注意这里要加.local-nav li；优先级 */
+
+.local-nav li .local-nav-icon-icon2 {
+    background-position: 0 -32px;
+}
+
+.local-nav li .local-nav-icon-icon3 {
+    background-position: 0 -64px;
+}
+
+.local-nav li .local-nav-icon-icon4 {
+    background-position: 0 -96px;
+}
+
+.local-nav li .local-nav-icon-icon5 {
+    background-position: 0 -128px;
+}
+
+
+/* nav主模块 */
+
+.nav {
+    /* overflow: hidden;把圆角属性显示出来 */
+    overflow: hidden;
+    border-radius: 8px;
+    /* background-color: pink; */
+    margin: 0 4px 3px;
+}
+
+.nav-common {
+    display: flex;
+    height: 88px;
+    background-color: pink;
+}
+
+.nav-items {
+    /* 把它平均分成三份 */
+    position: relative;
+    flex: 1;
+    /* 没有冲突 */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* .nav-items a [class^="nav-items-icon"] {
+
+} */
+
+.nav-common:nth-child(2) {
+    margin: 3px 0;
+}
+
+
+/* 选择前面的两个 */
+
+.nav-items:nth-child(-n+2) {
+    border-right: 1px solid #fff;
+}
+
+.nav-items a {
+    flex: 1;
+    /* 这一行不能再a里面写 在父盒子里面写flex-direction: column; */
+    font-size: 14px;
+    text-align: center;
+    line-height: 44px;
+    /* 文字阴影 */
+    text-shadow: 1px 1px rgba(0, 0, 0, .2);
+    color: #fff;
+}
+
+.nav-items a:nth-child(1) {
+    /* 设置第一个a连接盒子有一个底边框 */
+    border-bottom: 1px solid #fff;
+}
+
+
+/* 第一个列盒子的元素少了一个1px,补上 */
+
+
+/* 第一个列盒子的图片 在a链接发*/
+
+.nav-items-icon1 {
+    border: 0;
+    /* 底部居中对齐 */
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+.nav-items-icon2 {
+    position: absolute;
+    content: "";
+    top: 45px;
+    left: 60px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    /* 底部居中对齐 */
+    background: url(../images/sprite.png) no-repeat 0 -297px;
+    background-size: 104px auto;
+}
+
+.nav-items-icon3 {
+    position: absolute;
+    content: "";
+    top: 45px;
+    left: 68px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    /* 底部居中对齐 */
+    background: url(../images/sprite.png) no-repeat 0 -238px;
+    background-size: 104px auto;
+}
+
+
+/* 背景渐变颜色 */
+
+.nav-common:nth-child(1) {
+    background: -webkit-linear-gradient(left, #FA5A56, #FA9940);
+}
+
+.nav-common:nth-child(2) {
+    background: -webkit-linear-gradient(left, #4B90ED, #53BCED);
+}
+
+.nav-common:nth-child(3) {
+    background: -webkit-linear-gradient(left, #34c2a9, #6AD45A);
+}
+
+
+/* subnav-entry 侧边栏*/
+
+.subnav-entry {
+    display: flex;
+    flex-wrap: wrap;
+    /* 忘记的步骤 */
+    padding: 5px 0;
+    margin: 0 4px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.subnav-entry li {
+    flex: 20%;
+}
+
+.subnav-entry a {
+    display: flex;
+    flex-direction: column;
+    /* 图片文字居中对齐 */
+    align-items: center;
+    font-size: 12px;
+}
+
+
+/* .subnav-entry-icon {
+    width: 28px;
+    height: 28px;
+    background-color: pink;
+    margin-top: 4px;
+    background: url(../images/subnav-bg.png)no-repeat;
+    background-size: 28px auto;
+} */
+
+.subnav-entry [class^="subnav-entry-icon"] {
+    width: 28px;
+    height: 28px;
+    background-color: pink;
+    margin-top: 4px;
+    background: url(../images/subnav-bg.png)no-repeat 0 0;
+    background-size: 28px auto;
+}
+
+.subnav-entry li .subnav-entry-icon2 {
+    background-position: 0 -28px;
+}
+
+.subnav-entry li .subnav-entry-icon3 {
+    background-position: 0 -63px;
+}
+
+.subnav-entry li .subnav-entry-icon4 {
+    background-position: 0 -98px;
+}
+
+.subnav-entry li .subnav-entry-icon5 {
+    background-position: 0 -129px;
+}
+
+.subnav-entry li .subnav-entry-icon6 {
+    background-position: 0 -163px;
+}
+
+.subnav-entry li .subnav-entry-icon7 {
+    background-position: 0 -198px;
+}
+
+.subnav-entry li .subnav-entry-icon8 {
+    background-position: 0 -226px;
+}
+
+.subnav-entry li .subnav-entry-icon9 {
+    background-position: 0 -254px;
+}
+
+.subnav-entry li .subnav-entry-icon10 {
+    background-position: 0 -282px;
+}
+
+
+/* .salse-box */
+
+.salse-box {
+    border-top: 1px solid #bbb;
+    background-color: #fff;
+    margin: 4px;
+    box-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+
+.salse-hd {
+    /* 这个是a class=more连接的方法子绝父相 */
+    position: relative;
+    height: 46px;
+    background-color: #fff;
+}
+
+.salse-hd h2 {
+    /* 把H2的文字丢出去 */
+    position: relative;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.salse-hd h2::after {
+    /* 用定位来做子绝父相 */
+    top: 5px;
+    left: 8px;
+    position: absolute;
+    content: "";
+    width: 79px;
+    height: 15px;
+    background-color: pink;
+    background: url(../images/hot.png) no-repeat 0 -20px;
+    background-size: 79px auto;
+}
+
+.salse-hd .add {
+    /* 把a的文字丢出去 */
+    /* text-indent: -9999px;
+    overflow: hidden; */
+    position: absolute;
+    content: "";
+    top: -8px;
+    left: 90px;
+    /* background-color: pink; */
+    font-size: 12px;
+    /* 把H3的文字丢出去 */
+    /* text-indent: -9999px;
+    overflow: hidden; */
+}
+
+.salse-hd .add::after {
+    /* 用定位来做子绝父相 */
+    top: 1px;
+    left: -20px;
+    position: absolute;
+    content: "";
+    width: 61px;
+    height: 54px;
+    /* background-color: pink; */
+    background: url(../upload/focus.jpg) no-repeat 20px -125px;
+    background-size: 701px auto;
+}
+
+.more {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: 8px;
+    /* background-color: pink; */
+    background: -webkit-linear-gradient(left, #FF4F67, #FF6CC7);
+    border-radius: 15px;
+    padding: 3px 20px 3px 10px;
+    color: #fff;
+}
+
+.more::after {
+    /* 忘记设置大小了 */
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    content: "";
+    width: 7px;
+    height: 7px;
+    /* 用边框来做一个箭头 */
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    /* 旋转 */
+    transform: rotate(45deg);
+}
+
+
+/* row是父亲 */
+
+.row {
+    display: flex;
+}
+
+.row a {
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.row a:nth-child(1) {
+    border-right: 1px solid #eee;
+}
+
+.row a img {
+    width: 100%;
+}
+
+
+/* footer底部模块 */
+
+.footer {
+    display: flex;
+    height: 50px;
+    margin: 10px 0;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.footer li {
+    flex: 1;
+}
+
+.footer a {
+    display: flex;
+    /* 把对齐方式改一下为Y轴 */
+    flex-direction: column;
+    /* 侧边栏居中对齐 单行*/
+    align-items: center;
+    font-size: 12px;
+}
+
+
+/* .footer li [class^="footer-icon"] {
+    width: 25px;
+    height: 24px;
+    background-color: pink;
+    margin-top: 8px;
+    background: url(../images/sprite.png) no-repeat -59px -150px;
+    background-size: 104px auto;
+} */
+
+.footer li .footer-icon-icon1 {
+    width: 25px;
+    height: 24px;
+    background-color: pink;
+    margin-top: 8px;
+    background: url(../images/sprite.png) no-repeat -59px -150px;
+    background-size: 104px auto;
+}
+
+.footer li .footer--icon-icon2 {
+    width: 25px;
+    height: 24px;
+    background-color: pink;
+    margin-top: 8px;
+    background: url(../images/sprite.png) no-repeat -59px -170px;
+    background-size: 104px auto;
+}
+
+.footer li .footer--icon-icon3 {
+    width: 25px;
+    height: 24px;
+    background-color: pink;
+    margin-top: 8px;
+    background: url(../images/sprite.png) no-repeat -59px -307px;
+    background-size: 104px auto;
+}
+
+
+/* bottom */
+
+.bottom {
+    display: flex;
+    width: 210px;
+    height: 18px;
+    margin-bottom: 10px;
+    margin-left: 172px;
+}
+
+.bottom li {
+    flex: 1;
+    border-right: 1px solid #ccc;
+    padding: 0 8px;
+}
+
+.bottom li:last-child {
+    border-right: 0;
+}
+
+.bottom li a {
+    font-size: 5px;
+    color: #9C9B9B;
+    transform: scale(0.7);
+}
+
+.box {
+    width: 200px;
+    height: 18px;
+    margin: 0 auto;
+}
+
+.box .left {
+    float: left;
+    font-size: 12px;
+    color: #9C9C9C;
+    transform: scale(0.7);
+}
+
+.box .right {
+    float: right;
+    font-size: 12px;
+    color: #9C9C9C;
+    transform: scale(1);
+}
+
+em {
+    font-style: normal;
+}
+
+
+/* 返回顶部 */
+
+.goBack {
+    display: none;
+    position: fixed;
+    bottom: 75px;
+    right: 135px;
+    width: 38px;
+    height: 38px;
+    background: url(../images/back.png) no-repeat;
+    background-color: pink;
+    background-size: 38px 38px;
+}
