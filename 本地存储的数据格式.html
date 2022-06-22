@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储数据</title>
+</head>
+
+<body>
+    <script>
+        var todolist = [{
+                title: "Nicole",
+                age: 22,
+                done: false
+            }, {
+                title: "andy",
+                age: 23,
+                done: true
+            }]
+            // localStorage.setItem("todo", todolist);//在localstorage中是显示key=todo,value=[object Object],[object Object]
+            // 1. 本地存储里面只能存储字符串的数据格式 把我们的数组对象转换为字符串格式 JSON.stringify()
+        localStorage.setItem("todo", JSON.stringify(todolist)); //key=todo value=[{"title":"Nicole","age":22,"done":false},{"title":"andy","age":23,"done":true}]
+        //打印一下这个数据类型
+        var items = localStorage.getItem("todo");
+        console.log(typeof items); //数据类型是字符串string
+        console.log(items[0].title); //unfined 需要转换
+        // 2. 获取本地存储的数据 我们需要把里面的字符串数据转换为 对象格式 JSON.parse()
+        // var data = localStorage.getItem("todo", JSON.parse(todolist));不能这样写
+        var items = JSON.parse(items)
+        console.log(items[0].title);
+    </script>
+</body>
+
+</html>
